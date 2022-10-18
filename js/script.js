@@ -4,17 +4,20 @@ const string = 'abc';
 
 const getArr = (str) => {
 
-  let arr = [];
+  const arr = str.split('');
+  const result = [str];
 
-  if (str.length <= 1){
-    return str
+  for (let i = 0; i < arr.length - 1; i += 1){
+
+    let copiedArr = [...arr];
+
+    copiedArr.splice(i + 1, 0, '.');
+    result.push(copiedArr.join(''))
+
   }
 
-  for (let i of getArr(str.slice(1))) {
-    arr.push(str[0] + i);
-    arr.push(str[0] + '.' + i);
-  }
-return arr;
+  result.push(arr.join('.'))
+  return result;
 }
 
 const func = getArr(string);
